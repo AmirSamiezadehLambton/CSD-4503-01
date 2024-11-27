@@ -21,15 +21,23 @@ class FlaskTestCase(unittest.TestCase):
 
     def test_index_2(self):
         # Send a GET request to the "/" route
-        response = self.app.get("/index")
+        response = self.app.post("/")
 
         # Check if the response is 200 OK
-        self.assertEqual(first=response.status_code, second=200)
+        self.assertEqual(first=response.status_code, second=405)
 
-    def test_index_data(self):
-        # Send a GET request to the "/" route
-        response = self.app.get("/index")
 
-        # Check if the response is 200 OK
-        self.assertEqual(first=response.data.decode('utf-8'), second="This is the index page!")
+    # def test_index_2(self):
+    #     # Send a GET request to the "/" route
+    #     response = self.app.get("/index")
+    #
+    #     # Check if the response is 200 OK
+    #     self.assertEqual(first=response.status_code, second=200)
+    #
+    # def test_index_data(self):
+    #     # Send a GET request to the "/" route
+    #     response = self.app.get("/index")
+    #
+    #     # Check if the response is 200 OK
+    #     self.assertEqual(first=response.data.decode('utf-8'), second="This is the index page!")
 

@@ -1,8 +1,13 @@
 from app import flask_app, products_collection
 from flask import render_template
 
-@flask_app.route("/index")
+@flask_app.route("/index", methods=["GET"])
 def index():
+    try:
+        1 / 0
+    except ZeroDivisionError:
+        print("Cannot divide by zero!")
+
     return "This is the index page!"
 
 

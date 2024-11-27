@@ -7,9 +7,16 @@ from flask import Flask
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
-flask_app = Flask(__name__)
+import sentry_sdk
 
 load_dotenv()
+
+sentry_dsn = os.environ["SENTRY_DSN"]
+
+sentry_sdk.init(
+    dsn=sentry_dsn,
+)
+flask_app = Flask(__name__)
 
 db_username = os.environ["MONGODB_USERNAME"]
 db_password = os.environ.get("MONGODB_PASSWORD")
